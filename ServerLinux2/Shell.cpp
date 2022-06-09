@@ -249,7 +249,8 @@ void Shell::work()
 
                                     //делаем активный основной чат для данного пользователя
                                     std::shared_ptr<ChatBox> ChatToWrite = m_links.GetMain();
-                                    currentUser->SetChat(ChatToWrite);
+                                    //currentUser->SetChat(ChatToWrite);  //вот здесь был баг при переключении чатов в видео
+                                    m_users.setChatByName(currentUser->GetName(), ChatToWrite);
                                 }
                                 else if ((msg[1] == 'g') && (msg[2] == 'e') && (msg[3] == 't'))
                                 {
